@@ -8,11 +8,9 @@
   </button>
 </template>
 
-<script>
-import { colorPicker } from '../composables/color-picker';
-
-const {colors, message, matchColor } = colorPicker;
-
+<script setup>
+  import { colorPicker } from "../composables/color-picker";
+  const { colors, message, matchColor } = colorPicker();
 </script>
 
 <style></style>
