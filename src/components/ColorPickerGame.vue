@@ -9,28 +9,32 @@
 </template>
 
 <script>
-import { ref, reactive } from "@vue/reactivity";
+import { colorPicker } from './composables/colorPicker';
 
-export default {
-  setup() {
-    const colors = ["green", "red", "blue", "purple"];
-    let message = ref("Pick a color...");
+const {colors, message, matchColor } = colorPicker;
 
-    const matchColor = (value) => {
-      // do a random color based on the array index;
-      const randomNumber = Math.floor(Math.random() * 3) + 1; //between 1 - 4
+// import { ref, reactive } from "@vue/reactivity";
 
-      if (colors[randomNumber] === value) {
-        message.value = `You win... [answer: ${colors[randomNumber]}]`;
-        return;
-      }
+// export default {
+//   setup() {
+//     const colors = ["green", "red", "blue", "purple"];
+//     let message = ref("Pick a color...");
 
-      message.value = `You loose [answer: ${colors[randomNumber]}]`;
-    };
+//     const matchColor = (value) => {
+//       // do a random color based on the array index;
+//       const randomNumber = Math.floor(Math.random() * 3) + 1; //between 1 - 4
 
-    return { colors, message, matchColor };
-  },
-};
+//       if (colors[randomNumber] === value) {
+//         message.value = `You win... [answer: ${colors[randomNumber]}]`;
+//         return;
+//       }
+
+//       message.value = `You loose [answer: ${colors[randomNumber]}]`;
+//     };
+
+//     return { colors, message, matchColor };
+//   },
+// };
 </script>
 
 <style></style>
